@@ -7,6 +7,7 @@ const WHATSAPP_NUMBER = "919164060961";
 const packageOptions = [
   "East Sikkim 6-Day Tour",
   "North Sikkim 5-Day Tour",
+  "Homestay Booking",
   "Private Car Booking",
   "Custom Tour Package",
   "Just Enquiring"
