@@ -2,7 +2,7 @@ import { useState } from "react";
 import { MessageCircle, Send, User, Phone, Calendar, Users, Package } from "lucide-react";
 import { toast } from "sonner";
 
-const WHATSAPP_NUMBER = "919876543210";
+const WHATSAPP_NUMBER = "919164060961";
 
 const packageOptions = [
   "East Sikkim 6-Day Tour",

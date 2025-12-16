@@ -8,7 +8,7 @@ import {
 import eastSikkimImage from "@/assets/east-sikkim-lake.jpg";
 import northSikkimImage from "@/assets/north-sikkim-valley.jpg";
 
-const WHATSAPP_NUMBER = "919876543210";
+const WHATSAPP_NUMBER = "919164060961";
 
 const packages = [
   {

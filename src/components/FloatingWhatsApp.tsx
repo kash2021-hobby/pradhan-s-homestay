@@ -1,6 +1,6 @@
 import { MessageCircle } from "lucide-react";
 
-const WHATSAPP_NUMBER = "919876543210";
+const WHATSAPP_NUMBER = "919164060961";
 const WHATSAPP_MESSAGE = encodeURIComponent(
   "Hi! I'm interested in booking a Sikkim tour with Pradhan's Homestay."
 );

@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Menu, X, Mountain, MessageCircle } from "lucide-react";
 
-const WHATSAPP_NUMBER = "919876543210";
+const WHATSAPP_NUMBER = "919164060961";
 const WHATSAPP_MESSAGE = encodeURIComponent("Hi! I'm interested in Pradhan's Homestay services.");
 
 const navLinks = [
