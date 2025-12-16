@@ -1,7 +1,7 @@
 import { MapPin, Phone, Mail, ExternalLink, Mountain } from "lucide-react";
 
 const GOOGLE_REVIEW_LINK = "https://share.google/f7F5RTOiEezKZ9sSo";
-const WHATSAPP_NUMBER = "919876543210";
+const WHATSAPP_NUMBER = "919164060961";
 
 const Footer = () => {
   return (

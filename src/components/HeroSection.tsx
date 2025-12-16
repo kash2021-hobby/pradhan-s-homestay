@@ -1,7 +1,7 @@
 import { MessageCircle, MapPin, ChevronDown } from "lucide-react";
 import heroImage from "@/assets/hero-sikkim.jpg";
 
-const WHATSAPP_NUMBER = "919876543210"; // Replace with actual number
+const WHATSAPP_NUMBER = "919164060961";
 const WHATSAPP_MESSAGE = encodeURIComponent(
   "Hello! I'm interested in booking a Sikkim tour with Pradhan's Homestay. Please share more details."
 );
