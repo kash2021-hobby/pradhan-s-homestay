@@ -36,8 +36,11 @@ const HeroSection = () => {
 
         {/* Main Heading */}
         <h1 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl text-primary-foreground font-bold mb-4 md:mb-6 animate-fade-up delay-100 leading-snug md:leading-tight">
-          <span className="block">Experience the</span>
-          <span className="block">Magic of</span>
+          {/* Mobile: 3 lines */}
+          <span className="block sm:hidden">Experience the</span>
+          <span className="block sm:hidden">Magic of</span>
+          {/* Tablet & Desktop: 2 lines */}
+          <span className="hidden sm:block">Experience the Magic of</span>
           <span className="block text-accent mt-1 md:mt-2">Sikkim</span>
         </h1>
 
