@@ -3,6 +3,7 @@ import HeroSection from "@/components/HeroSection";
 import TourPackages from "@/components/TourPackages";
 import VehicleFleet from "@/components/VehicleFleet";
 import WhyChooseUs from "@/components/WhyChooseUs";
+import PhotoGallery from "@/components/PhotoGallery";
 import GoogleReviews from "@/components/GoogleReviews";
 import EnquiryForm from "@/components/EnquiryForm";
 import Footer from "@/components/Footer";
@@ -18,6 +19,7 @@ const Index = () => {
         <TourPackages />
         <VehicleFleet />
         <WhyChooseUs />
+        <PhotoGallery />
         <GoogleReviews />
         <EnquiryForm />
       </main>
