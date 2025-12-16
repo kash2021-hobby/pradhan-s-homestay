@@ -102,7 +102,7 @@ const Footer = () => {
                   href={`tel:+${WHATSAPP_NUMBER}`}
                   className="text-primary-foreground/70 hover:text-accent transition-colors"
                 >
-                  +91 98765 43210
+                  +91 91640 60961
                 </a>
               </li>
               <li className="flex items-center gap-3">
