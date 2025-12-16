@@ -1,15 +1,23 @@
 import { Car, Users, Shield, MessageCircle } from "lucide-react";
 
+import boleroImg from "@/assets/vehicles/bolero.jpg";
+import boleroNeoImg from "@/assets/vehicles/bolero-neo.jpg";
+import sumoImg from "@/assets/vehicles/sumo.jpg";
+import ertigaImg from "@/assets/vehicles/ertiga.jpg";
+import innovaImg from "@/assets/vehicles/innova.jpg";
+import scorpioImg from "@/assets/vehicles/scorpio.jpg";
+import wagonrImg from "@/assets/vehicles/wagonr.jpg";
+
 const WHATSAPP_NUMBER = "919164060961";
 
 const vehicles = [
-  { name: "Bolero", capacity: "7 Seater", type: "SUV", ideal: "Hill terrain" },
-  { name: "Bolero Neo Plus", capacity: "7 Seater", type: "SUV", ideal: "Family trips" },
-  { name: "Sumo", capacity: "7-10 Seater", type: "SUV", ideal: "Group travel" },
-  { name: "Ertiga", capacity: "7 Seater", type: "MUV", ideal: "Comfort rides" },
-  { name: "Innova", capacity: "7 Seater", type: "MUV", ideal: "Premium travel" },
-  { name: "Scorpio N", capacity: "7 Seater", type: "SUV", ideal: "Adventure trips" },
-  { name: "WagonR", capacity: "4 Seater", type: "Hatchback", ideal: "Budget trips" },
+  { name: "Bolero", capacity: "7 Seater", type: "SUV", ideal: "Hill terrain", image: boleroImg },
+  { name: "Bolero Neo Plus", capacity: "7 Seater", type: "SUV", ideal: "Family trips", image: boleroNeoImg },
+  { name: "Sumo", capacity: "7-10 Seater", type: "SUV", ideal: "Group travel", image: sumoImg },
+  { name: "Ertiga", capacity: "7 Seater", type: "MUV", ideal: "Comfort rides", image: ertigaImg },
+  { name: "Innova", capacity: "7 Seater", type: "MUV", ideal: "Premium travel", image: innovaImg },
+  { name: "Scorpio N", capacity: "7 Seater", type: "SUV", ideal: "Adventure trips", image: scorpioImg },
+  { name: "WagonR", capacity: "4 Seater", type: "Hatchback", ideal: "Budget trips", image: wagonrImg },
 ];
 
 const features = [
@@ -64,23 +72,32 @@ const VehicleFleet = () => {
         </div>
 
         {/* Vehicle Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
           {vehicles.map((vehicle) => (
             <button
               key={vehicle.name}
               onClick={() => handleBookingClick(vehicle.name)}
-              className="group bg-card border border-border rounded-xl p-4 md:p-6 text-left hover:border-accent hover:shadow-elevated transition-all duration-300"
+              className="group bg-card border border-border rounded-xl overflow-hidden text-left hover:border-accent hover:shadow-elevated transition-all duration-300"
             >
-              <div className="w-10 h-10 md:w-12 md:h-12 bg-accent/10 rounded-lg flex items-center justify-center mb-3 group-hover:bg-accent/20 transition-colors">
-                <Car className="w-5 h-5 md:w-6 md:h-6 text-accent" />
+              {/* Vehicle Image */}
+              <div className="aspect-[4/3] w-full overflow-hidden bg-secondary/30">
+                <img
+                  src={vehicle.image}
+                  alt={vehicle.name}
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                />
               </div>
-              <h3 className="font-display text-base md:text-lg font-semibold text-foreground mb-1">
-                {vehicle.name}
-              </h3>
-              <p className="text-muted-foreground text-xs md:text-sm">{vehicle.capacity}</p>
-              <span className="inline-block mt-2 text-xs text-valley-green bg-valley-green/10 px-2 py-1 rounded-full">
-                {vehicle.ideal}
-              </span>
+              
+              {/* Vehicle Info */}
+              <div className="p-4">
+                <h3 className="font-display text-base md:text-lg font-semibold text-foreground mb-1">
+                  {vehicle.name}
+                </h3>
+                <p className="text-muted-foreground text-xs md:text-sm">{vehicle.capacity}</p>
+                <span className="inline-block mt-2 text-xs text-valley-green bg-valley-green/10 px-2 py-1 rounded-full">
+                  {vehicle.ideal}
+                </span>
+              </div>
             </button>
           ))}
         </div>
