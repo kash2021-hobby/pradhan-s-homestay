@@ -1,10 +1,11 @@
-import { Home, Utensils, Coffee, Bed } from "lucide-react";
+import { Home, Utensils, Coffee, Bed, Check } from "lucide-react";
 import balconyView from "@/assets/homestay/balcony-view.jpg";
 import room1 from "@/assets/homestay/room-1.jpg";
 import room2 from "@/assets/homestay/room-2.jpg";
 import outdoorDining from "@/assets/homestay/outdoor-dining.jpg";
 import flowerStairs from "@/assets/homestay/flower-stairs.jpg";
 import guests from "@/assets/homestay/guests.jpg";
+import roomFeatured from "@/assets/homestay/room-featured.jpg";
 
 const homestayImages = [
   { src: balconyView, alt: "Scenic balcony view with mountain backdrop" },
@@ -61,29 +62,58 @@ const HomestayExperience = () => {
           ))}
         </div>
 
-        {/* Pricing & Inclusions Card */}
-        <div className="max-w-xl mx-auto">
-          <div className="bg-card rounded-2xl p-6 md:p-8 shadow-sm border border-border/50">
-            <div className="flex items-center gap-3 mb-6">
-              <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
-                <Home className="w-6 h-6 text-primary" />
-              </div>
-              <div>
-                <h3 className="text-xl font-semibold text-foreground">Homestay Packages</h3>
-                <p className="text-accent font-semibold text-lg">Starting from ₹1000 per person</p>
-                <span className="text-sm text-muted-foreground">with AT Plan (Accommodation & Tariff)</span>
-              </div>
-            </div>
-            
-            <div className="space-y-3">
-              {inclusions.map((item, index) => (
-                <div key={index} className="flex items-center gap-3">
-                  <div className="w-8 h-8 rounded-lg bg-secondary flex items-center justify-center flex-shrink-0">
-                    <item.icon className="w-4 h-4 text-primary" />
-                  </div>
-                  <span className="text-foreground">{item.text}</span>
+        {/* Pricing & Inclusions Card - Enhanced */}
+        <div className="max-w-4xl mx-auto">
+          <div className="bg-card rounded-3xl overflow-hidden shadow-lg border border-border/50">
+            <div className="grid md:grid-cols-2">
+              {/* Image Side */}
+              <div className="relative h-64 md:h-auto">
+                <img
+                  src={roomFeatured}
+                  alt="Comfortable homestay room with mountain views"
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent md:bg-gradient-to-r" />
+                <div className="absolute bottom-4 left-4 md:bottom-6 md:left-6">
+                  <span className="bg-accent text-accent-foreground px-4 py-2 rounded-full text-sm font-semibold shadow-lg">
+                    Best Value
+                  </span>
                 </div>
-              ))}
+              </div>
+              
+              {/* Content Side */}
+              <div className="p-6 md:p-8 lg:p-10 flex flex-col justify-center">
+                <div className="mb-6">
+                  <h3 className="text-2xl md:text-3xl font-bold text-foreground mb-2">
+                    Homestay Packages
+                  </h3>
+                  <div className="flex items-baseline gap-2">
+                    <span className="text-3xl md:text-4xl font-bold text-accent">₹1000</span>
+                    <span className="text-muted-foreground">per person</span>
+                  </div>
+                  <p className="text-sm text-muted-foreground mt-1">
+                    with AT Plan (Accommodation & Tariff)
+                  </p>
+                </div>
+                
+                <div className="space-y-4 mb-6">
+                  {inclusions.map((item, index) => (
+                    <div key={index} className="flex items-center gap-3">
+                      <div className="w-6 h-6 rounded-full bg-primary/20 flex items-center justify-center flex-shrink-0">
+                        <Check className="w-4 h-4 text-primary" />
+                      </div>
+                      <span className="text-foreground">{item.text}</span>
+                    </div>
+                  ))}
+                </div>
+
+                <div className="pt-4 border-t border-border/50">
+                  <p className="text-sm text-muted-foreground">
+                    <span className="font-medium text-foreground">Authentic Sikkimese hospitality</span> — 
+                    Experience local culture with modern comfort
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
