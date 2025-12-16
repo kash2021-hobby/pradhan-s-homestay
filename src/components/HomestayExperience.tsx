@@ -41,29 +41,8 @@ const HomestayExperience = () => {
             accommodation, food, transportation, and sightseeing, all bundled for a hassle-free experience.
           </p>
         </div>
-
-        {/* Image Gallery */}
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-4 mb-12">
-          {homestayImages.map((image, index) => (
-            <div 
-              key={index}
-              className={`relative overflow-hidden rounded-xl group ${
-                index === 0 ? "col-span-2 row-span-2 md:col-span-1 md:row-span-2" : ""
-              }`}
-            >
-              <img
-                src={image.src}
-                alt={image.alt}
-                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                style={{ minHeight: index === 0 ? "280px" : "140px" }}
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-            </div>
-          ))}
-        </div>
-
         {/* Pricing & Inclusions Card - Enhanced */}
-        <div className="max-w-4xl mx-auto">
+        <div className="max-w-4xl mx-auto mb-12">
           <div className="bg-card rounded-3xl overflow-hidden shadow-lg border border-border/50">
             <div className="grid md:grid-cols-2">
               {/* Image Side */}
@@ -116,6 +95,26 @@ const HomestayExperience = () => {
               </div>
             </div>
           </div>
+        </div>
+
+        {/* Image Gallery */}
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-4">
+          {homestayImages.map((image, index) => (
+            <div 
+              key={index}
+              className={`relative overflow-hidden rounded-xl group ${
+                index === 0 ? "col-span-2 row-span-2 md:col-span-1 md:row-span-2" : ""
+              }`}
+            >
+              <img
+                src={image.src}
+                alt={image.alt}
+                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                style={{ minHeight: index === 0 ? "280px" : "140px" }}
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+            </div>
+          ))}
         </div>
 
         {/* Value Proposition */}
