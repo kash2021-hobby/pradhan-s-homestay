@@ -28,17 +28,28 @@ const features = [
 
 const VehicleFleet = () => {
   const handleBookingClick = (vehicleName: string) => {
-    const message = encodeURIComponent(
-      `Hi! I'd like to book a ${vehicleName} for my Sikkim trip. Please share rates and availability.`
-    );
-    window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${message}`, "_blank");
+    // Update URL with vehicle selection and scroll to form
+    const url = new URL(window.location.href);
+    url.searchParams.set('vehicle', vehicleName);
+    url.hash = 'enquiry';
+    window.history.replaceState({}, '', url.toString());
+    
+    // Dispatch custom event to notify form
+    window.dispatchEvent(new CustomEvent('vehicleSelected', { detail: vehicleName }));
+    
+    // Scroll to form
+    document.getElementById('enquiry')?.scrollIntoView({ behavior: 'smooth' });
   };
 
   const handleGeneralEnquiry = () => {
-    const message = encodeURIComponent(
-      `Hi! I'm looking to book a private car for my Sikkim trip. Can you help me choose the right vehicle?`
-    );
-    window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${message}`, "_blank");
+    // Scroll to form with general car booking interest
+    const url = new URL(window.location.href);
+    url.searchParams.set('vehicle', 'Private Car Booking');
+    url.hash = 'enquiry';
+    window.history.replaceState({}, '', url.toString());
+    
+    window.dispatchEvent(new CustomEvent('vehicleSelected', { detail: 'Private Car Booking' }));
+    document.getElementById('enquiry')?.scrollIntoView({ behavior: 'smooth' });
   };
 
   return (

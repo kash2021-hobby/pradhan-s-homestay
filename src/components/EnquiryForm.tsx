@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { MessageCircle, Send, User, Phone, Calendar, Users, Package } from "lucide-react";
+import { useState, useEffect } from "react";
+import { MessageCircle, Send, User, Phone, Calendar, Users, Package, Car } from "lucide-react";
 import { toast } from "sonner";
 
 const WHATSAPP_NUMBER = "919164060961";
@@ -13,14 +13,59 @@ const packageOptions = [
   "Just Enquiring"
 ];
 
+const vehicleOptions = [
+  "Bolero",
+  "Bolero Neo Plus",
+  "Sumo",
+  "Ertiga",
+  "Innova",
+  "Scorpio N",
+  "WagonR"
+];
+
 const EnquiryForm = () => {
   const [formData, setFormData] = useState({
     name: "",
     phone: "",
     travelDate: "",
     numPeople: "",
-    packageInterest: ""
+    packageInterest: "",
+    vehicleChoice: ""
   });
+
+  // Listen for vehicle selection from VehicleFleet
+  useEffect(() => {
+    const handleVehicleSelected = (e: CustomEvent<string>) => {
+      const vehicle = e.detail;
+      if (vehicleOptions.includes(vehicle)) {
+        setFormData(prev => ({ 
+          ...prev, 
+          packageInterest: "Private Car Booking",
+          vehicleChoice: vehicle 
+        }));
+      } else {
+        setFormData(prev => ({ ...prev, packageInterest: vehicle }));
+      }
+    };
+
+    // Check URL params on mount
+    const url = new URL(window.location.href);
+    const vehicleParam = url.searchParams.get('vehicle');
+    if (vehicleParam) {
+      if (vehicleOptions.includes(vehicleParam)) {
+        setFormData(prev => ({ 
+          ...prev, 
+          packageInterest: "Private Car Booking",
+          vehicleChoice: vehicleParam 
+        }));
+      } else {
+        setFormData(prev => ({ ...prev, packageInterest: vehicleParam }));
+      }
+    }
+
+    window.addEventListener('vehicleSelected', handleVehicleSelected as EventListener);
+    return () => window.removeEventListener('vehicleSelected', handleVehicleSelected as EventListener);
+  }, []);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -36,6 +81,7 @@ const EnquiryForm = () => {
     }
 
     // Create WhatsApp message
+    const vehicleInfo = formData.vehicleChoice ? `\n🚗 Vehicle: ${formData.vehicleChoice}` : '';
     const message = `
 🏔️ *New Booking Enquiry - Pradhan's Homestay*
 
@@ -43,7 +89,7 @@ const EnquiryForm = () => {
 📱 Phone: ${formData.phone}
 📅 Travel Date: ${formData.travelDate || "Not specified"}
 👥 Number of People: ${formData.numPeople || "Not specified"}
-📦 Interested In: ${formData.packageInterest || "Not specified"}
+📦 Interested In: ${formData.packageInterest || "Not specified"}${vehicleInfo}
 
 Please share details and availability!
     `.trim();
@@ -173,6 +219,30 @@ Please share details and availability!
                 </select>
               </div>
             </div>
+
+            {/* Vehicle Choice - shows when Private Car Booking is selected */}
+            {formData.packageInterest === "Private Car Booking" && (
+              <div className="animate-in fade-in slide-in-from-top-2 duration-300">
+                <label htmlFor="vehicleChoice" className="block text-sm font-medium text-foreground mb-2">
+                  Select Vehicle
+                </label>
+                <div className="relative">
+                  <Car className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-muted-foreground" />
+                  <select
+                    id="vehicleChoice"
+                    name="vehicleChoice"
+                    value={formData.vehicleChoice}
+                    onChange={handleChange}
+                    className="w-full pl-11 pr-4 py-3 bg-background border border-input rounded-lg focus:ring-2 focus:ring-accent focus:border-accent outline-none transition-all appearance-none cursor-pointer"
+                  >
+                    <option value="">Select a vehicle</option>
+                    {vehicleOptions.map((vehicle) => (
+                      <option key={vehicle} value={vehicle}>{vehicle}</option>
+                    ))}
+                  </select>
+                </div>
+              </div>
+            )}
 
             {/* Submit Button */}
             <button
