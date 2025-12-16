@@ -36,7 +36,8 @@ const HeroSection = () => {
 
         {/* Main Heading */}
         <h1 className="font-display text-4xl md:text-5xl lg:text-7xl text-primary-foreground font-bold mb-6 animate-fade-up delay-100 leading-tight">
-          Experience the Magic of
+          <span className="block">Experience the</span>
+          <span className="block">Magic of</span>
           <span className="block text-accent mt-2">Sikkim</span>
         </h1>
 
