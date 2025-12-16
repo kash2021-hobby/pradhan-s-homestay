@@ -1,4 +1,4 @@
-import { Home, Utensils, Car, MapPin, Coffee, Bed } from "lucide-react";
+import { Home, Utensils, Coffee, Bed } from "lucide-react";
 import balconyView from "@/assets/homestay/balcony-view.jpg";
 import room1 from "@/assets/homestay/room-1.jpg";
 import room2 from "@/assets/homestay/room-2.jpg";
@@ -61,9 +61,8 @@ const HomestayExperience = () => {
           ))}
         </div>
 
-        {/* Info Cards */}
-        <div className="grid md:grid-cols-2 gap-6 lg:gap-8">
-          {/* Pricing & Inclusions Card */}
+        {/* Pricing & Inclusions Card */}
+        <div className="max-w-xl mx-auto">
           <div className="bg-card rounded-2xl p-6 md:p-8 shadow-sm border border-border/50">
             <div className="flex items-center gap-3 mb-6">
               <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
@@ -85,35 +84,6 @@ const HomestayExperience = () => {
                   <span className="text-foreground">{item.text}</span>
                 </div>
               ))}
-            </div>
-          </div>
-
-          {/* Transportation Card */}
-          <div className="bg-card rounded-2xl p-6 md:p-8 shadow-sm border border-border/50">
-            <div className="flex items-center gap-3 mb-6">
-              <div className="w-12 h-12 rounded-full bg-accent/10 flex items-center justify-center">
-                <Car className="w-6 h-6 text-accent" />
-              </div>
-              <div>
-                <h3 className="text-xl font-semibold text-foreground">Whole Sikkim Transportation</h3>
-                <p className="text-muted-foreground">Comfortable hill-friendly vehicles</p>
-              </div>
-            </div>
-            
-            <div className="flex flex-wrap gap-2 mb-6">
-              {["Bolero", "Bolero Neo Plus", "Sumo", "Ertiga", "Innova", "Scorpio N", "WagonR"].map((vehicle) => (
-                <span 
-                  key={vehicle}
-                  className="px-3 py-1.5 bg-secondary rounded-full text-sm text-foreground"
-                >
-                  {vehicle}
-                </span>
-              ))}
-            </div>
-
-            <div className="flex items-center gap-2 text-muted-foreground text-sm">
-              <MapPin className="w-4 h-4 text-primary" />
-              <span>NJP Station pickup & drop available for all tours</span>
             </div>
           </div>
         </div>
