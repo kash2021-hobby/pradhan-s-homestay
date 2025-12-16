@@ -64,18 +64,18 @@ const HeroSection = () => {
         </div>
 
         {/* Trust Indicators */}
-        <div className="flex flex-wrap justify-center gap-6 md:gap-10 mt-12 animate-fade-up delay-400">
-          <div className="text-center">
-            <p className="text-3xl md:text-4xl font-display font-bold text-accent">500+</p>
-            <p className="text-primary-foreground/70 text-sm">Happy Travelers</p>
+        <div className="flex flex-wrap justify-center gap-4 md:gap-6 mt-12 animate-fade-up delay-400">
+          <div className="bg-primary-foreground/10 backdrop-blur-md border border-primary-foreground/20 rounded-2xl px-6 py-4 md:px-8 md:py-5 text-center min-w-[120px] hover:bg-primary-foreground/15 transition-all duration-300 hover:scale-105">
+            <p className="text-3xl md:text-4xl font-display font-bold text-accent drop-shadow-lg">500+</p>
+            <p className="text-primary-foreground/80 text-sm mt-1 font-medium">Happy Travelers</p>
           </div>
-          <div className="text-center">
-            <p className="text-3xl md:text-4xl font-display font-bold text-accent">4.9★</p>
-            <p className="text-primary-foreground/70 text-sm">Google Rating</p>
+          <div className="bg-primary-foreground/10 backdrop-blur-md border border-primary-foreground/20 rounded-2xl px-6 py-4 md:px-8 md:py-5 text-center min-w-[120px] hover:bg-primary-foreground/15 transition-all duration-300 hover:scale-105">
+            <p className="text-3xl md:text-4xl font-display font-bold text-accent drop-shadow-lg">4.9★</p>
+            <p className="text-primary-foreground/80 text-sm mt-1 font-medium">Google Rating</p>
           </div>
-          <div className="text-center">
-            <p className="text-3xl md:text-4xl font-display font-bold text-accent">5+</p>
-            <p className="text-primary-foreground/70 text-sm">Years Experience</p>
+          <div className="bg-primary-foreground/10 backdrop-blur-md border border-primary-foreground/20 rounded-2xl px-6 py-4 md:px-8 md:py-5 text-center min-w-[120px] hover:bg-primary-foreground/15 transition-all duration-300 hover:scale-105">
+            <p className="text-3xl md:text-4xl font-display font-bold text-accent drop-shadow-lg">5+</p>
+            <p className="text-primary-foreground/80 text-sm mt-1 font-medium">Years Experience</p>
           </div>
         </div>
 
