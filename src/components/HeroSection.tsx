@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react";
 import { MessageCircle, MapPin, ChevronDown } from "lucide-react";
 import heroImage from "@/assets/hero-sikkim.jpg";
 import { useCountUp } from "@/hooks/useCountUp";
@@ -8,9 +9,16 @@ const WHATSAPP_MESSAGE = encodeURIComponent(
 );
 
 const HeroSection = () => {
-  const handleWhatsAppClick = () => {
-    window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${WHATSAPP_MESSAGE}`, "_blank");
-  };
+  const [scrollY, setScrollY] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrollY(window.scrollY);
+    };
+    
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   const scrollToPackages = () => {
     document.getElementById("packages")?.scrollIntoView({ behavior: "smooth" });
@@ -21,12 +29,18 @@ const HeroSection = () => {
   const rating = useCountUp({ end: 4.9, duration: 1800, delay: 1400, decimals: 1 });
   const years = useCountUp({ end: 5, duration: 1500, delay: 1600, suffix: '+' });
 
+  // Parallax effect - background moves slower than scroll
+  const parallaxOffset = scrollY * 0.4;
+
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Background Image */}
+      {/* Background Image with Parallax */}
       <div 
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: `url(${heroImage})` }}
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat will-change-transform"
+        style={{ 
+          backgroundImage: `url(${heroImage})`,
+          transform: `translateY(${parallaxOffset}px) scale(1.1)`,
+        }}
       />
       
       {/* Gradient Overlay */}
