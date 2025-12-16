@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { MessageCircle, Calendar, MapPin, Clock, TreePine, Mountain, Camera } from "lucide-react";
 import {
   Accordion,
@@ -100,6 +101,8 @@ const packages = [
 ];
 
 const TourPackages = () => {
+  const [openAccordion, setOpenAccordion] = useState<string | undefined>(undefined);
+
   const createWhatsAppLink = (packageTitle: string) => {
     const message = encodeURIComponent(
       `Hi! I'm interested in the "${packageTitle}" package from Pradhan's Homestay. Please share pricing and availability details.`
@@ -164,7 +167,13 @@ const TourPackages = () => {
                 </div>
 
                 {/* Itinerary Accordion */}
-                <Accordion type="single" collapsible className="mb-6">
+                <Accordion 
+                  type="single" 
+                  collapsible 
+                  value={openAccordion === pkg.id ? "itinerary" : ""}
+                  onValueChange={(value) => setOpenAccordion(value ? pkg.id : undefined)}
+                  className="mb-6"
+                >
                   <AccordionItem value="itinerary" className="border-border">
                     <AccordionTrigger className="text-foreground hover:text-accent hover:no-underline">
                       <span className="flex items-center gap-2">
