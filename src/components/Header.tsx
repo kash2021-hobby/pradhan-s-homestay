@@ -58,15 +58,13 @@ const Header = () => {
                 {link.name}
               </a>
             ))}
-            <a
-              href={`https://wa.me/${WHATSAPP_NUMBER}?text=${WHATSAPP_MESSAGE}`}
-              target="_blank"
-              rel="noopener noreferrer"
+            <button
+              onClick={() => document.getElementById("enquiry")?.scrollIntoView({ behavior: "smooth" })}
               className="btn-whatsapp text-sm py-2 px-4"
             >
               <MessageCircle className="w-4 h-4 mr-1 inline" />
               WhatsApp
-            </a>
+            </button>
           </nav>
 
           {/* Mobile Menu Button */}
@@ -95,15 +93,16 @@ const Header = () => {
                   {link.name}
                 </a>
               ))}
-              <a
-                href={`https://wa.me/${WHATSAPP_NUMBER}?text=${WHATSAPP_MESSAGE}`}
-                target="_blank"
-                rel="noopener noreferrer"
+              <button
+                onClick={() => {
+                  setIsMobileMenuOpen(false);
+                  document.getElementById("enquiry")?.scrollIntoView({ behavior: "smooth" });
+                }}
                 className="btn-whatsapp text-center mt-2"
               >
                 <MessageCircle className="w-4 h-4 mr-2 inline" />
                 Book on WhatsApp
-              </a>
+              </button>
             </nav>
           </div>
         )}
