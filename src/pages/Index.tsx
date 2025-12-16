@@ -19,9 +19,9 @@ const Index = () => {
         <HeroSection />
         <TourPackages />
         <HomestayExperience />
-        <VehicleFleet />
         <WhyChooseUs />
         <PhotoGallery />
+        <VehicleFleet />
         <GoogleReviews />
         <EnquiryForm />
       </main>
