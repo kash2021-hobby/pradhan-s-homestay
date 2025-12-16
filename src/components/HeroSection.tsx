@@ -1,21 +1,27 @@
 import { MessageCircle, MapPin, ChevronDown } from "lucide-react";
 import heroImage from "@/assets/hero-sikkim.jpg";
+
 const WHATSAPP_NUMBER = "919164060961";
-const WHATSAPP_MESSAGE = encodeURIComponent("Hello! I'm interested in booking a Sikkim tour with Pradhan's Homestay. Please share more details.");
+const WHATSAPP_MESSAGE = encodeURIComponent(
+  "Hello! I'm interested in booking a Sikkim tour with Pradhan's Homestay. Please share more details."
+);
+
 const HeroSection = () => {
   const handleWhatsAppClick = () => {
     window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${WHATSAPP_MESSAGE}`, "_blank");
   };
+
   const scrollToPackages = () => {
-    document.getElementById("packages")?.scrollIntoView({
-      behavior: "smooth"
-    });
+    document.getElementById("packages")?.scrollIntoView({ behavior: "smooth" });
   };
-  return <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+
+  return (
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Background Image */}
-      <div className="absolute inset-0 bg-cover bg-center bg-no-repeat" style={{
-      backgroundImage: `url(${heroImage})`
-    }} />
+      <div 
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+        style={{ backgroundImage: `url(${heroImage})` }}
+      />
       
       {/* Gradient Overlay */}
       <div className="absolute inset-0 bg-gradient-hero" />
@@ -29,9 +35,9 @@ const HeroSection = () => {
         </div>
 
         {/* Main Heading */}
-        <h1 className="font-display text-4xl md:text-5xl lg:text-7xl text-primary-foreground font-bold mb-6 animate-fade-up delay-100 leading-tight">Experience the 
-Magic of
-Sikkim<span className="block text-accent mt-2">Sikkim</span>
+        <h1 className="font-display text-4xl md:text-5xl lg:text-7xl text-primary-foreground font-bold mb-6 animate-fade-up delay-100 leading-tight">
+          Experience the Magic of
+          <span className="block text-accent mt-2">Sikkim</span>
         </h1>
 
         {/* Subheading */}
@@ -42,13 +48,17 @@ Sikkim<span className="block text-accent mt-2">Sikkim</span>
 
         {/* CTA Buttons */}
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center animate-fade-up delay-300">
-          <button onClick={() => document.getElementById("enquiry")?.scrollIntoView({
-          behavior: "smooth"
-        })} className="btn-whatsapp flex items-center gap-2 text-lg">
+          <button 
+            onClick={() => document.getElementById("enquiry")?.scrollIntoView({ behavior: "smooth" })}
+            className="btn-whatsapp flex items-center gap-2 text-lg"
+          >
             <MessageCircle className="w-5 h-5" />
             Book on WhatsApp
           </button>
-          <button onClick={scrollToPackages} className="btn-secondary bg-primary-foreground/10 border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/20 hover:text-primary-foreground">
+          <button 
+            onClick={scrollToPackages}
+            className="btn-secondary bg-primary-foreground/10 border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/20 hover:text-primary-foreground"
+          >
             Explore Packages
           </button>
         </div>
@@ -70,10 +80,15 @@ Sikkim<span className="block text-accent mt-2">Sikkim</span>
         </div>
 
         {/* Scroll Indicator */}
-        <button onClick={scrollToPackages} className="absolute bottom-8 left-1/2 -translate-x-1/2 text-primary-foreground/60 hover:text-primary-foreground transition-colors animate-bounce">
+        <button 
+          onClick={scrollToPackages}
+          className="absolute bottom-8 left-1/2 -translate-x-1/2 text-primary-foreground/60 hover:text-primary-foreground transition-colors animate-bounce"
+        >
           <ChevronDown className="w-8 h-8" />
         </button>
       </div>
-    </section>;
+    </section>
+  );
 };
+
 export default HeroSection;
