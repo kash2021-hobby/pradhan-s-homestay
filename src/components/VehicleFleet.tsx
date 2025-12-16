@@ -77,10 +77,10 @@ const VehicleFleet = () => {
             <button
               key={vehicle.name}
               onClick={() => handleBookingClick(vehicle.name)}
-              className="group bg-card border border-border rounded-xl overflow-hidden text-left hover:border-accent hover:shadow-elevated transition-all duration-300"
+              className="group bg-card border border-border/50 rounded-xl overflow-hidden text-left shadow-soft hover:border-accent hover:shadow-elevated transition-all duration-300"
             >
               {/* Vehicle Image */}
-              <div className="aspect-[4/3] w-full overflow-hidden bg-secondary/30">
+              <div className="aspect-[4/3] w-full overflow-hidden bg-gradient-to-br from-secondary/50 to-secondary/20">
                 <img
                   src={vehicle.image}
                   alt={vehicle.name}
