@@ -49,7 +49,7 @@ const HeroSection = () => {
         {/* CTA Buttons */}
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center animate-fade-up delay-300">
           <button 
-            onClick={handleWhatsAppClick}
+            onClick={() => document.getElementById("enquiry")?.scrollIntoView({ behavior: "smooth" })}
             className="btn-whatsapp flex items-center gap-2 text-lg"
           >
             <MessageCircle className="w-5 h-5" />
