@@ -35,14 +35,14 @@ const HeroSection = () => {
         </div>
 
         {/* Main Heading */}
-        <h1 className="font-display text-4xl md:text-5xl lg:text-7xl text-primary-foreground font-bold mb-6 animate-fade-up delay-100 leading-tight">
+        <h1 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl text-primary-foreground font-bold mb-4 md:mb-6 animate-fade-up delay-100 leading-snug md:leading-tight">
           <span className="block">Experience the</span>
           <span className="block">Magic of</span>
-          <span className="block text-accent mt-2">Sikkim</span>
+          <span className="block text-accent mt-1 md:mt-2">Sikkim</span>
         </h1>
 
         {/* Subheading */}
-        <p className="text-primary-foreground/80 text-lg md:text-xl max-w-2xl mx-auto mb-8 animate-fade-up delay-200 font-body">
+        <p className="text-primary-foreground/80 text-base sm:text-lg md:text-xl max-w-2xl mx-auto mb-6 md:mb-8 px-2 animate-fade-up delay-200 font-body leading-relaxed">
           Curated homestay experiences & scenic tours through the Himalayan paradise. 
           Local expertise, comfort & unforgettable memories await you.
         </p>
