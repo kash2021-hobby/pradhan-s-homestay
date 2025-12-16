@@ -6,60 +6,60 @@
 
 @layer base {
   :root {
-    /* Sikkim-inspired nature palette */
-    --background: 45 30% 97%;
-    --foreground: 160 30% 15%;
+    /* Vibrant Sikkim adventure palette */
+    --background: 210 40% 98%;
+    --foreground: 215 30% 18%;
 
-    --card: 45 25% 95%;
-    --card-foreground: 160 30% 15%;
+    --card: 0 0% 100%;
+    --card-foreground: 215 30% 18%;
 
-    --popover: 45 30% 97%;
-    --popover-foreground: 160 30% 15%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 215 30% 18%;
 
-    /* Deep forest green */
-    --primary: 160 45% 25%;
-    --primary-foreground: 45 30% 97%;
+    /* Deep alpine teal - inviting & adventurous */
+    --primary: 185 65% 28%;
+    --primary-foreground: 0 0% 100%;
 
-    /* Soft sage */
-    --secondary: 145 20% 90%;
-    --secondary-foreground: 160 30% 20%;
+    /* Soft sky blue */
+    --secondary: 200 35% 92%;
+    --secondary-foreground: 185 50% 25%;
 
-    /* Muted mountain mist */
-    --muted: 160 15% 92%;
-    --muted-foreground: 160 15% 45%;
+    /* Muted cloud */
+    --muted: 210 25% 94%;
+    --muted-foreground: 210 15% 45%;
 
-    /* Warm amber accent */
-    --accent: 38 92% 50%;
-    --accent-foreground: 160 30% 10%;
+    /* Warm amber/orange accent - KEPT for CTAs */
+    --accent: 32 95% 52%;
+    --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 160 15% 85%;
-    --input: 160 15% 85%;
-    --ring: 160 45% 25%;
+    --border: 210 20% 88%;
+    --input: 210 20% 88%;
+    --ring: 185 65% 28%;
 
     --radius: 0.75rem;
 
-    /* Custom colors */
-    --mountain-slate: 210 25% 35%;
-    --sky-mist: 200 30% 85%;
-    --golden-hour: 38 92% 55%;
-    --forest-deep: 160 50% 18%;
-    --cream: 45 40% 95%;
-    --valley-green: 145 35% 40%;
+    /* Custom adventure colors */
+    --mountain-slate: 215 35% 30%;
+    --sky-mist: 200 50% 90%;
+    --golden-hour: 32 95% 55%;
+    --forest-deep: 165 55% 22%;
+    --cream: 40 50% 97%;
+    --valley-green: 155 45% 35%;
 
-    /* Gradients */
-    --gradient-hero: linear-gradient(180deg, hsl(210 25% 20% / 0.7) 0%, hsl(160 45% 15% / 0.85) 100%);
-    --gradient-mountain: linear-gradient(135deg, hsl(210 30% 25%) 0%, hsl(160 40% 20%) 100%);
-    --gradient-mist: linear-gradient(180deg, hsl(200 30% 95%) 0%, hsl(45 30% 97%) 100%);
-    --gradient-cta: linear-gradient(135deg, hsl(38 92% 50%) 0%, hsl(30 90% 45%) 100%);
-    --gradient-card: linear-gradient(180deg, hsl(45 30% 98%) 0%, hsl(45 25% 95%) 100%);
+    /* Vibrant gradients */
+    --gradient-hero: linear-gradient(180deg, hsl(215 40% 15% / 0.75) 0%, hsl(185 50% 18% / 0.85) 100%);
+    --gradient-mountain: linear-gradient(135deg, hsl(215 40% 22%) 0%, hsl(185 55% 25%) 100%);
+    --gradient-mist: linear-gradient(180deg, hsl(200 40% 96%) 0%, hsl(210 40% 98%) 100%);
+    --gradient-cta: linear-gradient(135deg, hsl(32 95% 52%) 0%, hsl(25 90% 48%) 100%);
+    --gradient-card: linear-gradient(180deg, hsl(0 0% 100%) 0%, hsl(210 30% 97%) 100%);
 
-    /* Shadows */
-    --shadow-soft: 0 4px 20px -4px hsl(160 30% 15% / 0.1);
-    --shadow-elevated: 0 12px 40px -8px hsl(160 30% 15% / 0.15);
-    --shadow-glow: 0 0 30px hsl(38 92% 50% / 0.3);
+    /* Enhanced shadows */
+    --shadow-soft: 0 4px 24px -4px hsl(215 40% 20% / 0.08);
+    --shadow-elevated: 0 16px 48px -12px hsl(215 40% 20% / 0.18);
+    --shadow-glow: 0 0 35px hsl(32 95% 52% / 0.35);
 
     /* Sidebar defaults */
     --sidebar-background: 0 0% 98%;
@@ -73,33 +73,33 @@
   }
 
   .dark {
-    --background: 160 30% 8%;
-    --foreground: 45 30% 95%;
+    --background: 215 35% 10%;
+    --foreground: 210 30% 95%;
 
-    --card: 160 25% 12%;
-    --card-foreground: 45 30% 95%;
+    --card: 215 30% 14%;
+    --card-foreground: 210 30% 95%;
 
-    --popover: 160 30% 8%;
-    --popover-foreground: 45 30% 95%;
+    --popover: 215 35% 10%;
+    --popover-foreground: 210 30% 95%;
 
-    --primary: 38 92% 55%;
-    --primary-foreground: 160 30% 10%;
+    --primary: 32 95% 55%;
+    --primary-foreground: 215 40% 10%;
 
-    --secondary: 160 25% 18%;
-    --secondary-foreground: 45 30% 90%;
+    --secondary: 215 25% 20%;
+    --secondary-foreground: 210 30% 90%;
 
-    --muted: 160 20% 15%;
-    --muted-foreground: 160 15% 60%;
+    --muted: 215 25% 18%;
+    --muted-foreground: 210 20% 60%;
 
-    --accent: 38 92% 50%;
-    --accent-foreground: 160 30% 10%;
+    --accent: 32 95% 52%;
+    --accent-foreground: 215 40% 10%;
 
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 160 20% 20%;
-    --input: 160 20% 20%;
-    --ring: 38 92% 55%;
+    --border: 215 25% 22%;
+    --input: 215 25% 22%;
+    --ring: 32 95% 55%;
 
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
