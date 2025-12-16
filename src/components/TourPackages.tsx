@@ -1,11 +1,13 @@
-import { useState } from "react";
-import { MessageCircle, Calendar, MapPin, Clock, TreePine, Mountain, Camera } from "lucide-react";
+import { MessageCircle, Calendar, MapPin, Clock, TreePine, Mountain } from "lucide-react";
 import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@/components/ui/accordion";
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
+import { Button } from "@/components/ui/button";
+import { ScrollArea } from "@/components/ui/scroll-area";
 import eastSikkimImage from "@/assets/east-sikkim-lake.jpg";
 import northSikkimImage from "@/assets/north-sikkim-valley.jpg";
 
@@ -101,8 +103,6 @@ const packages = [
 ];
 
 const TourPackages = () => {
-  const [openAccordion, setOpenAccordion] = useState<string | undefined>(undefined);
-
   const createWhatsAppLink = (packageTitle: string) => {
     const message = encodeURIComponent(
       `Hi! I'm interested in the "${packageTitle}" package from Pradhan's Homestay. Please share pricing and availability details.`
@@ -166,23 +166,27 @@ const TourPackages = () => {
                   ))}
                 </div>
 
-                {/* Itinerary Accordion */}
-                <Accordion 
-                  type="single" 
-                  collapsible 
-                  value={openAccordion === pkg.id ? "itinerary" : ""}
-                  onValueChange={(value) => setOpenAccordion(value ? pkg.id : undefined)}
-                  className="mb-6"
-                >
-                  <AccordionItem value="itinerary" className="border-border">
-                    <AccordionTrigger className="text-foreground hover:text-accent hover:no-underline">
-                      <span className="flex items-center gap-2">
-                        <Calendar className="w-4 h-4" />
-                        View Full Itinerary
-                      </span>
-                    </AccordionTrigger>
-                    <AccordionContent>
-                      <div className="space-y-4 pt-2">
+                {/* Itinerary Dialog */}
+                <Dialog>
+                  <DialogTrigger asChild>
+                    <Button 
+                      variant="outline" 
+                      className="w-full mb-6 border-primary/30 text-primary hover:bg-primary hover:text-primary-foreground transition-all"
+                    >
+                      <Calendar className="w-4 h-4 mr-2" />
+                      View Full Itinerary
+                    </Button>
+                  </DialogTrigger>
+                  <DialogContent className="max-w-2xl max-h-[90vh] bg-card">
+                    <DialogHeader>
+                      <DialogTitle className="font-display text-2xl text-foreground flex items-center gap-2">
+                        <Calendar className="w-5 h-5 text-accent" />
+                        {pkg.title}
+                      </DialogTitle>
+                      <p className="text-muted-foreground text-sm">{pkg.duration}</p>
+                    </DialogHeader>
+                    <ScrollArea className="max-h-[60vh] pr-4">
+                      <div className="space-y-4 py-4">
                         {pkg.itinerary.map((day) => (
                           <div key={day.day} className="relative pl-6 pb-4 border-l-2 border-accent/30 last:border-l-0 last:pb-0">
                             <div className="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-accent" />
@@ -198,9 +202,20 @@ const TourPackages = () => {
                           </div>
                         ))}
                       </div>
-                    </AccordionContent>
-                  </AccordionItem>
-                </Accordion>
+                    </ScrollArea>
+                    <div className="pt-4 border-t border-border">
+                      <a
+                        href={createWhatsAppLink(pkg.title)}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="btn-whatsapp w-full flex items-center justify-center gap-2"
+                      >
+                        <MessageCircle className="w-5 h-5" />
+                        Book This Package
+                      </a>
+                    </div>
+                  </DialogContent>
+                </Dialog>
 
                 {/* CTA */}
                 <a
